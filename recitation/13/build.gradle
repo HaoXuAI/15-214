@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+test.testLogging { exceptionFormat "full"; events "failed", "passed", "skipped" }
+
+configurations.all {
+    resolutionStrategy {
+        force 'org.ow2.asm:asm:5.0.3'
+        forcedModules = [ 'org.ow2.asm:asm:5.0.3' ]
+    }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.healthmarketscience.rmiio/rmiio
+    compile group: 'com.healthmarketscience.rmiio', name: 'rmiio', version: '2.0.4'
+    // https://mvnrepository.com/artifact/net.jcip/jcip-annotations
+    compile group: 'net.jcip', name: 'jcip-annotations', version: '1.0'
+
+}
+
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+buildscript{
+  repositories {
+    mavenCentral()
+  }
+}
+

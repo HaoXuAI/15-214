@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'findbugs'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5'
+    compile 'edu.stanford.nlp:stanford-corenlp:3.7.0'
+    compile 'edu.stanford.nlp:stanford-corenlp:3.7.0:models'
+    compile 'org.slf4j:slf4j-simple:1.7.25'
+    compile 'net.jcip:jcip-annotations:1.0'
+}
+
+
+findbugs {
+    ignoreFailures = true
+}
+
+tasks.withType(FindBugs) {
+    reports {
+          xml.enabled false
+              html.enabled true
+                }
+}
+

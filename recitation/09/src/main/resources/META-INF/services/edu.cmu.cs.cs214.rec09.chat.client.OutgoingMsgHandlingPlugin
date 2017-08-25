@@ -1,0 +1,4 @@
+#List of plugins to be registered by framework
+#Provide fully qualified class names here ( edu.cmu.cs.cs214.rec09.plugin.XXX )
+#Separate by new line.
+edu.cmu.cs.cs214.rec09.chat.plugin.EncoderPlugin
